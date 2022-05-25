@@ -1,0 +1,6 @@
+django
+opencv-python
+numpy
+requests
+tensorflow
+
