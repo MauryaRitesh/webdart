@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import ModelForm
+from .models import Profile
 
 class NameForm(forms.Form):
     name = forms.CharField(label='Your name',max_length=100)
@@ -9,6 +11,9 @@ class NameForm(forms.Form):
     state = forms.CharField(max_length=50)
     code = forms.IntegerField()
 
-class Profile(forms.Form):
-	name = forms.CharField(required = True, max_length = 20, help_text = 'Your IG user name.')
+class Profile(ModelForm):
+    class Meta:
+        model = Profile
+        fields = '__all__'
+	#name = forms.CharField(required = True, max_length = 20, help_text = 'Your IG user name.')
     

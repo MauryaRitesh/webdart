@@ -3,6 +3,7 @@
 Home
 {% endblock title %}
 {% block body %}
+{% load crispy_forms_tags %}
 <!-- <div class='container-fluid px-0'> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
@@ -100,17 +101,19 @@ Home
     
   <div class='container' > 
     <div class="row justify-content-center">
-    <form method="POST" action="/profile" autocomplete="off">
+    <form method="post" action="" autocomplete="off" style="width:500px; height:80px; font-size:16pt;">
       {% csrf_token %}
-      {{ form.as_p }}
-      <div class="form-row">
+      {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+      <!--<div class="form-row">
         <div class="form-group col-md-6">
           <input style="width:500px; height:60px; font-size:24pt;" type="Name" class="form-control" id="inputEmail4" placeholder="Enter User Name">
         </div>
       </div>
       <div class="row justify-content-center">
       <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+      </div>-->
     </form>
   </div>
   </div>
@@ -235,6 +238,7 @@ Home
       </div>
     </div>
   </div>-->
+  <br><br><br><br>
 
 </main>
 

@@ -7,7 +7,14 @@ from .forms import NameForm, Profile
 from home.models import Contact
 
 def index(request):
-    context = {'variable': 'this is sent'}
+    form = Profile()
+    if request.method == 'POST':
+        form = Profile(request.POST)
+        if form.is_valid():
+            with open('model/users.txt', 'w') as f:
+                f.write(form.cleaned_data['name'])
+
+    context = {'form': form}
     
     return render(request,'index.html',context)
     #return HttpResponse("this is home page")

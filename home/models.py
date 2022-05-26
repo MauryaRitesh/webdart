@@ -15,9 +15,7 @@ class Contact(models.Model):
    code = models.CharField(max_length=6)
 
 class Profile(models.Model):
-	name = models.CharField(max_length = 20, default = 'Enter User Name here')
-   
-   
-def __str__(self):
-    return self.name
+   name = models.CharField(max_length = 20, default = 'Enter User Name')
+   def __str__(self):
+      return self.name
     
