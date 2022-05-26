@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Profile
+from .models import Profile, Contact
 
 class NameForm(forms.Form):
     name = forms.CharField(label='Your name',max_length=100)
@@ -10,6 +10,11 @@ class NameForm(forms.Form):
     city = forms.CharField(max_length=50)
     state = forms.CharField(max_length=50)
     code = forms.IntegerField()
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'
 
 class Profile(ModelForm):
     class Meta:
