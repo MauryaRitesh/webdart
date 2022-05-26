@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib import messages
 import requests
 import csv
-from .forms import NameForm, Profile
+from .forms import NameForm, Profile, ContactForm
 from home.models import Contact
 
 def index(request):
@@ -41,8 +41,10 @@ def services(request):
 '''
 
 def contact(request):
+
+    form = ContactForm()
     if request.method == "POST":
-       form = NameForm(request.POST)
+       form = ContactForm(request.POST)
        print(form.is_valid())
        '''for field in form:
            print("Field Error: ", field.name, field.errors)'''
@@ -52,7 +54,7 @@ def contact(request):
             form.save() 
             messages.success(request, 'Your Message has been sent')
     else:
-        form = NameForm()
+        form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
 

@@ -3,6 +3,7 @@
 Contact
 {% endblock title %}
 {% block body %}
+{% load crispy_forms_tags %}
 
 <div class='container'>
     <img src="https://sign2day.com/wp-content/uploads/2021/03/Marketing-strategies-with-Sign2Day-1280x678.jpg" class="d-block w-100" alt="...">
@@ -14,12 +15,15 @@ Contact
 {% csrf_token %}
 {{forms}}
 <input type ="submit" value ="Submit">
-</forms>-->
+</forms>-->\\
 <div class='container'> 
   <h4 class='text-center'>Contact Us</h4>   
     <form method="post" action="/contact">
       {% csrf_token %}
-      <div class="form-row">
+      {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+      <!--<div class="form-row">
         <div class="form-group col-md-6">
           <label fo r="inputEmail4">Name</label>
           <input type="Name" class="form-control" id="inputEmail4" placeholder="Name">
@@ -70,5 +74,6 @@ Contact
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div>  
+  </div>  -->
+  <br><br><br>
 {% endblock body %}

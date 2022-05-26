@@ -1,6 +1,6 @@
 import os
 import model
-import scraper
+#import scraper
 import csv
 import matplotlib.pyplot as plt
 
@@ -25,9 +25,10 @@ if os.path.exists(user + ".txt"):
 
 #for plotting
 ang, dis, fer, hap, neu, sad, sur = 0, 0, 0 , 0, 0, 0, 0
-for file in sorted(get_files(cwd+'/'+user)):
-    print(cwd+'/'+user+'/' + file)
-    exp = model.expressions(cwd+'/'+user+'/' + file)
+pwd = os.path.join(cwd, user)
+for file in sorted(get_files(pwd)):
+    print(os.path.join(pwd, file))
+    exp = model.expressions(os.path.join(pwd, file))
     if (exp=="Angry"):
         ang += 1
     elif(exp=="Disgust"):
