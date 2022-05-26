@@ -1,0 +1,8 @@
+django
+django-crispy-forms
+instagram-scraper
+opencv-python
+numpy
+requests
+tensorflow
+matplotlib
