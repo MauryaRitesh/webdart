@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact
+{% endblock title %}
+{% block body %}
+
+<div class='container'>
+    <img src="https://sign2day.com/wp-content/uploads/2021/03/Marketing-strategies-with-Sign2Day-1280x678.jpg" class="d-block w-100" alt="...">
+</div>
+
+
+
+<!--<forms action ="/contact/" method="post">
+{% csrf_token %}
+{{forms}}
+<input type ="submit" value ="Submit">
+</forms>-->
+<div class='container'> 
+  <h4 class='text-center'>Contact Us</h4>   
+    <form method="post" action="/contact">
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label fo r="inputEmail4">Name</label>
+          <input type="Name" class="form-control" id="inputEmail4" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Email-ID</label>
+          <input type="Email" class="form-control" id="inputPassword4" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Phone Number</label>
+        <input type="number" class="form-control" id="inputAddress2" placeholder="Number">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>AP|Andhra Pradesh</option>AR|Arunachal Pradesh<option>AS|Assam</option><option>BR|Bihar</option><option>CT|Chhattisgarh</option><option>GA|Goa</option>
+            <option>GJ|Gujarat</option>
+            <option>HR|Haryana</option><option>HP|Himachal Pradesh</option><option>JK|Jammu and Kashmir</option><option>JH|Jharkhand</option><option>KA|Karnataka</option>
+            <option>KL|Kerala</option><option>MP|Madhya Pradesh</option><option>MH|Maharashtra</option><option>MN|Manipur</option><option>ML|Meghalaya</option>
+            <option>MZ|Mizoram</option><option>NL|Nagaland</option><option>OR|Odisha</option><option>PB|Punjab</option><option>RJ|Rajasthan</option>
+            <option>SK|Sikkim</option><option>TN|Tamil Nadu</option><option>TG|Telangana</option><option>TR|Tripura</option><option>UT|Uttarakhand</option>
+            <option>UP|Uttar Pradesh</option><option>WB|West Bengal</option><option>AN|Andaman and Nicobar Islands</option><option>CH|Chandigarh</option><option>DN|Dadra and Nagar Haveli</option><option>DD|Daman and Diu</option><option>DL|Delhi</option><option>LD|Lakshadweep</option><option>PY|Puducherry</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Pin code</label>
+          <input type="text" class="form-control" id="code">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>  
+{% endblock body %}
