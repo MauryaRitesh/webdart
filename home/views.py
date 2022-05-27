@@ -5,14 +5,22 @@ import requests
 import csv
 from .forms import NameForm, Profile, ContactForm
 from home.models import Contact
+import os
 
 def index(request):
     form = Profile()
     if request.method == 'POST':
         form = Profile(request.POST)
         if form.is_valid():
-            with open('model/users.txt', 'w') as f:
-                f.write(form.cleaned_data['name'])
+            file = '/home/ritesh/Desktop/webdart/model/users.txt'
+            with open(file, 'w') as f:
+                user = form.cleaned_data['name']
+                f.write(user)
+            command = "instagram-scraper -f {} -u chesislub -p abcd4321 -m 10 -t image".format(file)
+            os.system(command)
+            os.system("python3 /home/ritesh/Desktop/webdart/model/main.py")
+            return render(request,'result.html')
+
 
     context = {'form': form}
     
@@ -21,6 +29,8 @@ def index(request):
 def about(request):
     return render(request,'about.html')
     #return HttpResponse("this is about page")
+def result(request):
+    return render(request,'result.html')
 def services(request):
     return render(request,'services.html')
     #return HttpResponse("this is services page")

@@ -1,5 +1,0 @@
-Happy
-Neutral
-Neutral
-Sad
-Sad

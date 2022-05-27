@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 cwd = os.getcwd()
+#print(cwd)
 
 def get_files(path):
     for file in os.listdir(path):
@@ -13,19 +14,20 @@ def get_files(path):
             yield file
 
 
-fileName = open("users.txt", "r")
+fileName = open("/home/ritesh/Desktop/webdart/model/users.txt", "r")
 user = fileName.read()
 
 #Scraping and downloading the images to .../user/ directory
 #scraper.main(user)
 
 #new output file for new user
-if os.path.exists(user + ".txt"):
+'''if os.path.exists(user + ".txt"):
     os.remove(user + ".txt")
-
+'''
 #for plotting
 ang, dis, fer, hap, neu, sad, sur = 0, 0, 0 , 0, 0, 0, 0
 pwd = os.path.join(cwd, user)
+print( "User: ", user,"\nPWD: ", pwd)
 for file in sorted(get_files(pwd)):
     print(os.path.join(pwd, file))
     exp = model.expressions(os.path.join(pwd, file))
@@ -44,8 +46,11 @@ for file in sorted(get_files(pwd)):
     elif(exp=="Surprise"):
         sur += 1
     with open(user + ".txt", 'a') as f:
-        f.write(exp)
-        f.write('\n')
+        try:
+            f.write(exp)
+            f.write('\n')
+        except:
+            pass
 
 
 data = {'Angry':ang, 'Disgust':dis,'Fear':fer, 'Happy':hap, 'Neutral':neu, 'Sad':sad, 'Surprise':sur}
@@ -61,8 +66,8 @@ plt.bar(exp, values,
 plt.xlabel("Expressions")
 plt.ylabel("No. of images")
 plt.title("Expressions of {} from images.".format(user))
-plt.savefig(user+'.jpg')
-plt.show()
+plt.savefig(os.path.join(cwd, 'home', 'static', 'home' , 'img/') + 'out.jpg')
+#plt.show()
 
 '''label_dict = {0:'Angry',1:'Disgust',2:'Fear',3:'Happy',4:'Neutral',5:'Sad',6:'Surprise'}
 
