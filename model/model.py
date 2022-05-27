@@ -1,13 +1,13 @@
 from tensorflow import keras
 import cv2
 import numpy as np
-model = keras.models.load_model('model.h5')
+model = keras.models.load_model('/home/ritesh/Desktop/webdart/model/model.h5')
 
 def facecrop(image):
     ## Crops the face of a person from any image!
 
     ## OpenCV XML FILE for Frontal Facial Detection using HAAR CASCADES.
-    facedata = "haarcascade_frontalface_alt.xml"
+    facedata = "/home/ritesh/Desktop/webdart/model/haarcascade_frontalface_alt.xml"
     cascade = cv2.CascadeClassifier(facedata)
 
     ## Reading the given Image with OpenCV
@@ -42,20 +42,24 @@ def expressions(file):
     label_dict = {0:'Angry',1:'Disgust',2:'Fear',3:'Happy',4:'Neutral',5:'Sad',6:'Surprise'}
 
 
-    #img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
-    img = facecrop(file)
-    img = cv2.resize(img, (48,48))
-    img = np.array(img)
+    try:
+        ## Sometimes there isn't any face in the given image hence img is empty
+        #img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
+        img = facecrop(file)
+        img = cv2.resize(img, (48,48))
+        img = np.array(img)
 
-    img = np.expand_dims(img,axis = 0) #makes image shape (1,48,48)
-    img = img.reshape(1,48,48,1)
-    result = model.predict(img)
-    result = list(result[0])
-    print(result)
+        img = np.expand_dims(img,axis = 0) #makes image shape (1,48,48)
+        img = img.reshape(1,48,48,1)
+        result = model.predict(img)
+        result = list(result[0])
+        print(result)
 
-    img_index = result.index(max(result))
-    print(label_dict[img_index])
-    return label_dict[img_index]
+        img_index = result.index(max(result))
+        print(label_dict[img_index])
+        return label_dict[img_index]
+    except:
+        pass
 
 
 '''if __name__ == "__main__":

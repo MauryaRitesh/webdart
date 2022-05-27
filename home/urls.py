@@ -9,6 +9,7 @@ urlpatterns = [
     path("services", views.services,name='services'),
     path("contact", views.contact,name='contact'),
     path("profile", views.profile,name='profile'),
+    path("result", views.result,name='result'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

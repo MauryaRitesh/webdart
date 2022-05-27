@@ -1,11 +1,11 @@
 from pprint import pprint
 import instagram_scraper
 
-args = {"login_user": "login", "login_pass": "pass", "maximum":"10"}
+args = {"login_user": "chesislub", "login_pass": "abcd4321", "maximum":"25", "media-types":"image"}
 
 def main(uname):
     insta_scraper = instagram_scraper.InstagramScraper(**args)
-    insta_scraper.authenticate_as_guest()
+    insta_scraper.authenticate_with_login()
     shared_data = insta_scraper.get_shared_data_userinfo(username=uname)
 
     arr = []
@@ -14,3 +14,5 @@ def main(uname):
         arr.append(item)
 
     pprint(arr)
+
+#main("aliaabhatt")
