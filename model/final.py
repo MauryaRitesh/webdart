@@ -5,7 +5,7 @@ import os
 import scraper
 import csv
 import matplotlib.pyplot as plt
-model = keras.models.load_model('/home/ritesh/Desktop/webdart/model/model.h5')
+model = keras.models.load_model('/home/ritesh/Desktop/webdart/model/model.h5') # working directory on my pc
 
 
 
