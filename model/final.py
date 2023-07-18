@@ -2,7 +2,7 @@ from tensorflow import keras
 import cv2
 import numpy as np
 import os
-#import scraper
+import scraper
 import csv
 import matplotlib.pyplot as plt
 model = keras.models.load_model('/home/ritesh/Desktop/webdart/model/model.h5')
@@ -49,7 +49,7 @@ def expressions(file):
 
 
     try:
-        ## Sometimes there isn't any face in the given image hence img is empty
+        ## Sometimes, there isn't any face in the given image; hence img is empty
         #img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
         img = facecrop(file)
         img = cv2.resize(img, (48,48))
@@ -71,7 +71,7 @@ def expressions(file):
 
 
 cwd = os.getcwd()
-#print(cwd)
+print(cwd)
 
 def get_files(path):
     for file in os.listdir(path):
@@ -83,7 +83,7 @@ fileName = open("/home/ritesh/Desktop/webdart/model/users.txt", "r")
 user = fileName.read()
 
 #Scraping and downloading the images to .../user/ directory
-#scraper.main(user)
+scraper.main(user)
 
 #new output file for new user
 '''if os.path.exists(user + ".txt"):
@@ -131,6 +131,6 @@ plt.bar(exp, values,
 plt.xlabel("Expressions")
 plt.ylabel("No. of images")
 plt.title("Expressions of {} from images.".format(user))
-plt.savefig(os.path.join(cwd, 'home', 'static', 'home' , 'img/') + 'out.jpg')
-#plt.show()
+plt.savefig(os.path.join(cwd, 'home', 'static', 'home', 'img/') + 'out.jpg')
+plt.show()
 
