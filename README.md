@@ -1,6 +1,8 @@
 # WebDart
 Project for DevJam 2022
 
+PPT added.
+
 ## Setup Project locally
 
 1. Install [Python](https://www.python.org/).
@@ -9,7 +11,7 @@ Project for DevJam 2022
     git clone https://github.com/MauryaRitesh/webdart.git
     cd webdart
     ```
-3. Create and activate a virtual environment.(can skip this step if you want to install the required dependencies gloabally).
+3. Create and activate a virtual environment. (can skip this step if you want to install the required dependencies globally).
    ### Ubuntu
     ```bash
     virtualenv myenv
